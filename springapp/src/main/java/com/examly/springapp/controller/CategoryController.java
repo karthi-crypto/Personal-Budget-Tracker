@@ -3,6 +3,7 @@ package com.examly.springapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,14 +40,15 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+    public String deleteCategory(@PathVariable Long id) {
         service.deleteCategory(id);
-        return ResponseEntity.noContent().build(); 
+        return "Deleted successfully"; 
+    }
+    @DeleteMapping("/api/categories")
+    public ResponseEntity<Void> deleteWithoutId() {
+    return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
     }
 
-    @DeleteMapping
-public ResponseEntity<String> deleteCategoryNoId() {
-    return ResponseEntity.badRequest().body("Category ID required");
-}
+
 
 }
