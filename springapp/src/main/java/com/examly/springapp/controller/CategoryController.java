@@ -17,6 +17,8 @@ import com.examly.springapp.dto.BudgetSummaryDto;
 import com.examly.springapp.model.Category;
 import com.examly.springapp.service.BudgetService;
 
+import io.swagger.models.Response;
+
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -25,18 +27,18 @@ public class CategoryController {
     private BudgetService service;
 
     @PostMapping
-    public ResponseEntity<Category> addCategory(@RequestBody Category category) {
-        return ResponseEntity.ok(service.addCategory(category));
+    public Category addCategory(@RequestBody Category category) {
+        return service.addCategory(category);
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> fetchAllCategory() {
-        return ResponseEntity.ok(service.getAllCategories());
+    public List<Category> fetchAllCategory() {
+        return service.getAllCategories();
     }
 
     @GetMapping("/summary")
-    public ResponseEntity<List<BudgetSummaryDto>> fetchAllBudgetSummary() {
-        return ResponseEntity.ok(service.getBudgetSummary());
+    public List<BudgetSummaryDto> fetchAllBudgetSummary() {
+        return service.getBudgetSummary();
     }
 
     @DeleteMapping("/{id}")

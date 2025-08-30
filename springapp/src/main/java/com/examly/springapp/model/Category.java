@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 @Entity
 public class Category {
         @Id
@@ -25,6 +27,7 @@ public class Category {
         public void setCategoryName(String categoryName) {
                 this.categoryName = categoryName;
         }
+        //@JsonSerialize(using = com.fasterxml.jackson.databind.ser.std.NumberSerializers.DoubleSerializer.class)
         public int getAllocatedAmount() {
                 return allocatedAmount;
         }
