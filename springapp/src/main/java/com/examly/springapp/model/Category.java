@@ -28,8 +28,8 @@ public class Category {
                 this.categoryName = categoryName;
         }
         //@JsonSerialize(using = com.fasterxml.jackson.databind.ser.std.NumberSerializers.DoubleSerializer.class)
-        public int getAllocatedAmount() {
-                return allocatedAmount;
+        public double getAllocatedAmount() {
+                return (double)allocatedAmount;
         }
         public void setAllocatedAmount(int allocatedAmount) {
                 this.allocatedAmount = allocatedAmount;
