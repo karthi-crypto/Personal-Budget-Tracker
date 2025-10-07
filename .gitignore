@@ -1,1 +1,12 @@
+# IDE config files
+.idea/
+
+# Build output
+reactapp/build/
+
+# Node dependencies
+reactapp/node_modules/
+
+# Java binaries or build files
+springapp/bin/
 /.metadata/
